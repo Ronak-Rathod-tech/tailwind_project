@@ -1,11 +1,10 @@
 import React from "react";
-import Welcome from "./Welcome";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
   const onNavigate = () => {
-    navigate("<welcome />");
+    navigate("/welcome");
   };
 
   return (
@@ -51,6 +50,9 @@ const Login = () => {
             >
               Sign In
             </button>
+          </div>
+          <div className="mt-2">
+            <p>Sign up here!</p>
           </div>
         </div>
       </form>
