@@ -1,9 +1,9 @@
 import React from "react";
 import Login from "./components/Login";
-
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Welcome from "./components/Welcome";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/welcome" element={<Welcome />} />
-        {/* <Route path="/" element={<Login />}></Route> */}
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
