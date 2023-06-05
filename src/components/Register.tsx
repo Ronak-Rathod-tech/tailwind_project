@@ -1,21 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import { registerSchema } from "../registerSchema";
 import { Link } from "react-router-dom";
 
 const initialValues = {
   firstname: "",
-  middlename: "",
   lastname: "",
   mobile: "",
   email: "",
   password: "",
   confirmpassword: "",
   gender: "",
+  checkbox: false,
 };
 
 const Register = () => {
-  const [gender, setGender] = useState();
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues,
@@ -56,29 +55,6 @@ const Register = () => {
             />
             {errors.firstname && touched.firstname ? (
               <p className="text-red-500">{errors.firstname}</p>
-            ) : null}
-          </div>
-
-          <div className="mb-4">
-            <label
-              className="block text-grey-darker text-sm font-bold mb-2"
-              htmlFor="middle_name"
-            >
-              Middle Name
-            </label>
-            <input
-              type="text"
-              name="middlename"
-              id="mname"
-              autoComplete="off"
-              placeholder="enter middle name"
-              value={values.middlename}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
-            />
-            {errors.middlename && touched.middlename ? (
-              <p className="text-red-500">{errors.middlename}</p>
             ) : null}
           </div>
 
@@ -203,51 +179,50 @@ const Register = () => {
             >
               Gender
             </label>
-            <label htmlFor="">
-              <input
-                type="radio"
-                id="male"
-                name="gender"
-                value="Male"
-                onChange={(e) => setGender(e.target.value)}
-                onBlur={handleBlur}
-              />
-              Male
-            </label>
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              value="Male"
+              onChange={handleChange}
+            />
+            Male
             <br></br>
-            <label htmlFor="female">
-              <input
-                type="radio"
-                id="female"
-                name="gender"
-                value="Female"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              Female
-            </label>
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="Female"
+              onChange={handleChange}
+            />
+            Female
             <br></br>
-            <label htmlFor="other">
-              <input
-                type="radio"
-                id="other"
-                name="gender"
-                value="Other"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              Other
-            </label>
+            <input
+              type="radio"
+              id="other"
+              name="gender"
+              value="Other"
+              onChange={handleChange}
+            />
+            Other
             {errors.gender && touched.gender ? (
               <p className="text-red-500">{errors.gender}</p>
             ) : null}
           </div>
 
           <div className="mb-4">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="checkbox"
+              onChange={handleChange}
+            />
             <label className="ms-2" htmlFor="confirmation">
               are you sure entered valid details ?
             </label>
+            {errors.checkbox && touched.checkbox ? (
+              <p className="text-red-500">{errors.checkbox}</p>
+            ) : null}
           </div>
 
           <div className="flex items-center justify-between">

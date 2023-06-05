@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "ronak",
+      "address": "rajkot",
+      "mobile": 9865875454,
+      "email": "ronak@gmail.com",
+      "age": 22
+    },
+    {
+      "id": 2,
+      "name": "vivek",
+      "address": "ahemdabad",
+      "mobile": 9865875589,
+      "email": "vivek@gmail.com",
+      "age": 25
+    },
+    {
+      "id": 3,
+      "name": "parth",
+      "address": "porbandar",
+      "mobile": 9865875454,
+      "email": "parth@gmail.com",
+      "age": 30
+    }
+  ]
+}

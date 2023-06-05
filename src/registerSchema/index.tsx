@@ -2,7 +2,6 @@ import * as Yup from "yup";
 
 export const registerSchema = Yup.object({
   firstname: Yup.string().min(2).max(20).required("please enter first name"),
-  middlename: Yup.string().min(2).max(20).required("please enter middle name"),
   lastname: Yup.string().min(2).max(20).required("please enter last name"),
   mobile: Yup.string()
     .min(8)
@@ -15,6 +14,6 @@ export const registerSchema = Yup.object({
     .max(10)
     .required("please enter your confirm password")
     .oneOf([Yup.ref("password")], "password must match"),
-
   gender: Yup.string().required("please select gender"),
+  checkbox: Yup.boolean().oneOf([true], "please accept entered value is valid"),
 });
