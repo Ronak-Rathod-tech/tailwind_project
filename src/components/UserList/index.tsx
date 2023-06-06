@@ -1,67 +1,84 @@
 import React, { useEffect, useState } from "react";
-// import Data from "../../data.json";
+// import Data from "../../../db.json";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const UserList = () => {
-  const [users, setUsers] = useState([]);
+  const [data, setData] = useState<any[]>([]);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/users")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("data", data);
+  //       setUsers(data.users);
+  //     });
+  // }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data", data);
-        setUsers(data.users);
+    axios
+      .get("http://localhost:3004/users")
+      .then((res) => setData(res.data))
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
+
   return (
-    <div className="md:container mx:auto px-2 pt-2 shadow-md text-center">
+    <div className="container mt-5 mx:auto px-2 pt-2 shadow-md pb-2">
+      <div className="text-right">
+        <Link
+          to="/adduser"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 mb-2 me-2 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Add User
+        </Link>
+      </div>
       <div className="font-bold text-center bg-blue-200 text-white">
         User List
       </div>
-      <table className="table-auto mt-2">
+      <table className="table-auto  mt-2">
         <thead>
-          <tr className="">
+          <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Mobile</th>
-            <th>Email</th>
-            <th>Age</th>
-            <th>Actions</th>
+            <th className="px-14">Name</th>
+            <th className="px-14">Address</th>
+            <th className="px-14">Mobile</th>
+            <th className="px-14">Email</th>
+            <th className="px-14">Age</th>
+            <th className="px-14">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user, i) => (
-            <tr key={i}>
-              <td>{user.id}</td>
-            </tr>
-          ))}
-          <div>
-            {/* {Data &&
-              Data.map((data) => {
-                console.log(data);
-                return (
-                  <div className="" key={data.id}>
-                    {data.id}
-                    {data.name}
-                  </div>
-                );
-              })} */}
-          </div>
-          <tr>
-            <td></td>
-            <td>Malcolm Lockyer</td>
-            <td>1961</td>
-          </tr>
-          <tr>
-            <td>Witchy Woman</td>
-            <td>The Eagles</td>
-            <td>1972</td>
-          </tr>
-          <tr>
-            <td>Shining Star</td>
-            <td>Earth, Wind, and Fire</td>
-            <td>1975</td>
-          </tr>
+          {data.map((user, i) => {
+            return (
+              <tr key={i}>
+                <td>{user.id}</td>
+                <td className="px-14">{user.name}</td>
+                <td className="px-14">{user.address}</td>
+                <td className="px-14">{user.mobile}</td>
+                <td className="px-14">{user.email}</td>
+                <td className="px-14">{user.age}</td>
+                <td className="px-14">
+                  <Link
+                    to={`/edituser/${user.id}`}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                    type="submit"
+                  >
+                    Edit
+                  </Link>
+                  <Link
+                    to="/deleteuser"
+                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 ms-2 rounded focus:outline-none focus:shadow-outline"
+                    type="submit"
+                  >
+                    Remove
+                  </Link>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

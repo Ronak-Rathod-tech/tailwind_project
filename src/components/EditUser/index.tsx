@@ -1,30 +1,21 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
-const AddUser = () => {
-  const [data, setData] = useState({
-    name: "",
-    address: "",
-    mobile: "",
-    email: "",
-    age: "",
-  });
+const EditUser = () => {
+  const { id } = useParams();
 
-  const navigat = useNavigate();
-
-  function handleSubmit(event: any) {
-    event.preventDefault();
-
+  useEffect(() => {
     axios
-      .post("http://localhost:3004/users", data)
-      .then((res) => {
-        alert("Data added successfully!");
-        navigat("/");
-      })
-      .catch((err) => console.log(err));
-  }
+      .get("http://localhost:3004/users/" + id)
+      .then((res) => setData(res.data))
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
+
+  const [data, setData] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   let name, value, address, mobile, email, age;
 
@@ -35,6 +26,15 @@ const AddUser = () => {
 
     setData({ ...data, [name]: value });
   };
+
+  function handleSubmit(event: any) {
+    event.preventDefault();
+    axios.put("http://localhost:3004/users/" + id, data).then((res) => {
+      console.log("res", res);
+      alert("data updated successfuly !");
+      navigate("/");
+    });
+  }
 
   return (
     <div className="md:container mx:auto px-96 pt-5">
@@ -183,4 +183,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default EditUser;

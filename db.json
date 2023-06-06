@@ -23,6 +23,23 @@
       "mobile": 9865875454,
       "email": "parth@gmail.com",
       "age": 30
+    },
+    {
+      "name": "abc",
+      "address": "rajkot",
+      "mobile": "9865986587",
+      "email": "abc@gmail.com",
+      "age": "23",
+      "id": 4
+    },
+    {
+      "name": "xyz",
+      "address": "baroda",
+      "mobile": "6598655432",
+      "email": "xyz@gmail.com",
+      "age": "30",
+      "checkbox": "on",
+      "id": 5
     }
   ]
 }
