@@ -103,6 +103,7 @@ const Register = () => {
               <p className="text-red-500">{errors.mobile}</p>
             ) : null}
           </div>
+
           <div className="mb-4">
             <label
               className="block text-grey-darker text-sm font-bold mb-2"
