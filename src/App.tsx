@@ -17,9 +17,9 @@ function App() {
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<UserList />} />
+        <Route path="/userlist" element={<UserList />} />
         <Route path="/adduser" element={<AddUser />} />
         <Route path="/edituser/:id" element={<EditUser />} />
-        <Route path="/deleteuser" element={<AddUser />} />
       </Routes>
     </BrowserRouter>
   );

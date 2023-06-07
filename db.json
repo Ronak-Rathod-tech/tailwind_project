@@ -1,45 +1,31 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "ronak",
-      "address": "rajkot",
-      "mobile": 9865875454,
-      "email": "ronak@gmail.com",
-      "age": 22
-    },
-    {
-      "id": 2,
-      "name": "vivek",
-      "address": "ahemdabad",
-      "mobile": 9865875589,
-      "email": "vivek@gmail.com",
-      "age": 25
-    },
-    {
-      "id": 3,
-      "name": "parth",
-      "address": "porbandar",
-      "mobile": 9865875454,
-      "email": "parth@gmail.com",
-      "age": 30
-    },
-    {
-      "name": "abc",
-      "address": "rajkot",
-      "mobile": "9865986587",
-      "email": "abc@gmail.com",
-      "age": "23",
-      "id": 4
-    },
-    {
-      "name": "xyz",
+      "name": "xyz2",
       "address": "baroda",
       "mobile": "6598655432",
       "email": "xyz@gmail.com",
       "age": "30",
       "checkbox": "on",
       "id": 5
+    },
+    {
+      "name": "maulik a",
+      "address": "amreli",
+      "mobile": "9887655465",
+      "email": "maulik@gmail.com",
+      "age": "32",
+      "checkbox": "on",
+      "id": 6
+    },
+    {
+      "name": "sunil",
+      "address": "baroda",
+      "mobile": "6598658765",
+      "email": "sunil@gmail.com",
+      "age": "45",
+      "checkbox": "on",
+      "id": 7
     }
   ]
 }
